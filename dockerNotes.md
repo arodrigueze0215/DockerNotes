@@ -8,3 +8,15 @@
 - `docker rm nombre_contenedor `= _remove a container_
 - `docker rm $(docker ps -aq) `= _remove all the containers_
 - `docker run -d nginx `= _run nginx but don't keep the terminal attached to the process_
+- `docker image ls `= _List all images_
+
+*Dockerfile*
+
+```
+FROM ubuntu:18.04
+COPY . /app
+RUN make /app
+CMD python /app/app.py
+
+```
+- `docker build -t ubuntu:py .`= _build the image based dockerfile `-t` is a kind of tag and `.` is the context_
