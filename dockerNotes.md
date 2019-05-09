@@ -13,10 +13,11 @@
 *Dockerfile*
 
 ```
-FROM ubuntu:18.04
-COPY . /app
-RUN make /app
-CMD python /app/app.py
+FROM python
+COPY [".", "/src"]
+WORKDIR /src
+CMD python3 /src/today.py
 
 ```
-- `docker build -t ubuntu:py .`= _build the image based dockerfile `-t` is a kind of tag and `.` is the context_
+- `docker build -t python:py .`= _build the image based dockerfile `-t` is a kind of tag and `.` is the context_
+- `docker run -it python:py .`= _build the image based dockerfile `-t` is a kind of tag and `.` is the context_
